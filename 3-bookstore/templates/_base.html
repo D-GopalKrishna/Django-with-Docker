@@ -1,0 +1,17 @@
+<!-- templates/_base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{% block title %}Bookstore{% endblock title %}</title>
+</head>
+<body>
+<div class="container">
+    <!-- Instead of writing content I can write anything in place of it. Its just a tradition/convention in Django -->
+    {% block content %}                         
+
+
+    {% endblock content %}
+</div>
+</body>
+</html>
