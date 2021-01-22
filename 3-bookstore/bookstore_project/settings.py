@@ -39,10 +39,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'users.apps.UsersConfig'               ## Writing in a more "best practice" way. It takes advantage of additional configurations that can be added in Appconfig
     # 'pages.apps.PagesConfig',
+
+
     'users',
     'pages',
-    'crispy_forms'
+    
+    # Third party
+    'crispy_forms',
+
 ]
+
+
+
+
+
 
 ## Django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -146,3 +156,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home'
