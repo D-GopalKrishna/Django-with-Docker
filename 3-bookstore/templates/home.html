@@ -1,5 +1,6 @@
 <!-- templates/home.html -->
 {% extends '_base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock title %}
 
@@ -7,6 +8,7 @@
 
 
     <h1>Homepage</h1>
+    <img class="bookcover" src="{% static 'images/a.jpeg' %}"><br><br><br>
 
     {% if user.is_authenticated %}
         Hi {{ user.email }}!
