@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
     # 'users.apps.UsersConfig'               ## Writing in a more "best practice" way. It takes advantage of additional configurations that can be added in Appconfig
     # 'pages.apps.PagesConfig',
 
@@ -162,9 +164,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+# LOGOUT_REDIRECT_URL = 'home'
 ACCOUNT_LOGOUT_REDIRECT = 'home'
+ACCOUNT_SESSION_REMEMBER = True
 
+# ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False               ## doesnot ask for comnfirmation
+
+ACCOUNT_USERNAME_REQUIRED = False # new
+ACCOUNT_AUTHENTICATION_METHOD = 'email' # new
+ACCOUNT_EMAIL_REQUIRED = True # new
+ACCOUNT_UNIQUE_EMAIL = True # new
 
 
 
