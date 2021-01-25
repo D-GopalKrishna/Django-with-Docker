@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    # command: python /code/manage.py runserver 127.0.0.1:8000
+
+    environment:
+      - SECRET_KEY=@+l(ryz+-0k3&1f)bd25p6qd$$513+qyp1!(mw(mx*5wrg1do@n            # Adding additional $ sign if one there.
+      - DEBUG=1 
+    volumes: 
+      - .:/code
+    ports: 
+      - 8000:8000
+    depends_on: 
+      - db
+
+  db:
+    image: postgres
+    volumes: 
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST_AUTH_METHOD:trust
+
+    
+volumes: 
+  postgres_data:

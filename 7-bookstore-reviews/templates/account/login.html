@@ -1,0 +1,29 @@
+{% extends '_base.html' %}
+{% load socialaccount %}
+
+
+{% block title %}Log In{% endblock title %}
+
+{% block content %}
+
+    <h2>Log In</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button class="btn btn-success" type="submit">Log In</button>
+    
+    </form>
+
+    <br>
+
+    <button><a href="{% provider_login_url 'github' %}">Sign Up With Github</a></button>
+
+    <br>
+
+    <button><a href="{% provider_login_url 'google' %}">Sign Up With Google</a></button>
+
+
+
+{% endblock content %}
