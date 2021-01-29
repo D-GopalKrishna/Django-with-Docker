@@ -1,0 +1,38 @@
+version: '3.7'
+
+services: 
+  web:
+    restart: always
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    # command: python /code/manage.py runserver 127.0.0.1:5432
+    volumes: 
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on: 
+      - db
+    # links:
+    #   - db:db
+    # networks:
+    #   - djangonetwork
+
+  db:
+    # build: .
+    # container_name: db
+    image: postgres
+    # networks:
+    # #   - djangonetwork
+    environment:
+            - POSTGRES_DB=db
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_HOST_AUTH_METHOD:trust
+
+
+
+      
+
+# networks:
+#   djangonetwork:
+#     driver: bridge
