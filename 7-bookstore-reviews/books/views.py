@@ -34,3 +34,4 @@ class SearchResultsListView(ListView): # new
         return Book.objects.filter(
             Q(title__icontains=query) | Q(author__icontains=query)
         )
+
